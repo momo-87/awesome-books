@@ -19,6 +19,8 @@ function addBook(i, bookTitle, bookAuthor) {
     };
     books.push(newBook);
 }
-const a = addBook(2, 'OK','NAME');
 
-console.log(books);
+function removeBook (bookTitle) {
+    const result = books.filter(book => book.title != bookTitle);
+    return result;
+};
