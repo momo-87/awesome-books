@@ -1,34 +1,57 @@
-// the book object
-const book = {
-  id: '',
-  title: '',
-  author: '',
-};
+class BookList {
+    constructor() {
+        this.data = [];
+    }
+
+    // Add new book Method
+    addBook(title, author) {
+        // push new book to class data
+        this.data.push({
+            id: Date.now().toString(),
+            title: title,
+            author: author
+        });
+        // save added book to localStorage
+        localStorage.setItem('storedBooks', JSON.stringify(this.data));
+        return this.data;
+    }
+
+
+
+
+
+}
+
+const bookList = new BookList();
 
 // Check local storage for books list object
-let booksList = JSON.parse(localStorage.getItem('books')) || [];
+let storedBooks = JSON.parse(localStorage.getItem('storedbooks')) || [];
 
-// Add a new book function
-function addBook(title, author) {
-  const newBook = Object.create(book);
 
-  // Create a unique ID
-  newBook.id = Date.now().toString();
 
-  newBook.title = title;
-  newBook.author = author;
-  booksList.push(newBook);
-}
+
+
+
 
 // Remove an existing book function
 function removeBook(id) {
-  booksList = booksList.filter((obj) => obj.id !== id);
+    storedBooks = storedBooks.filter((obj) => obj.id !== id);
 }
 
-// Save books to local storage
-function storeBooks(books) {
-  localStorage.setItem('books', JSON.stringify(books));
-}
+
+
+
+
+
+// // Save books to local storage
+// function storeBooks(books) {
+//   localStorage.setItem('books', JSON.stringify(books));
+// }
+
+
+
+
+
 
 // Show books
 function showBooks() {
@@ -39,7 +62,7 @@ function showBooks() {
   }
 
   // Update books
-  booksList.forEach((book) => {
+  storedBooks.forEach((book) => {
     // Create the container div
     const bookInfo = document.createElement('div');
     bookInfo.className = 'book-info';
@@ -72,8 +95,19 @@ function showBooks() {
     container.appendChild(bookInfo);
   });
 
-  // Update local storage
-  storeBooks(booksList);
+
+
+
+
+//   // Update local storage
+//   storeBooks(storedBooks);
+
+
+
+
+
+
+
 
   // Checking all the remove-book buttons
   const removeButtons = document.querySelectorAll('.remove-book');
@@ -88,11 +122,12 @@ function showBooks() {
 
 showBooks();
 
-// Adding new book
+// Adding new book by clicking on Add Button
 const addBookBtn = document.querySelector('#add-book');
 addBookBtn.addEventListener('click', () => {
   const title = document.querySelector('#new-title').value;
   const author = document.querySelector('#new-author').value;
-  addBook(title, author);
+    bookList.addBook(title, author);
+    
   showBooks();
 });
