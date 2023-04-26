@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 * {
   box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }
 
 .flex-column {
@@ -57,12 +60,18 @@
 
 .form input {
   margin: 0;
+  width: 150%;
+  height: 2.5rem;
+  padding: 5px;
 }
 
 .add-book {
-  margin-left: 75%;
+  margin-left: 125%;
 }
 
-#empty-title {
+#empty-title,
+#empty-author {
   margin-bottom: 5px;
+  font-size: small;
+  color: red;
 }
