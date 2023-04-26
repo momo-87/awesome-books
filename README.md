@@ -27,7 +27,7 @@ After you're finished please remove all the comments and instructions!
 <h3><b>Hi Visitor, you are welcome</b></h3>
 <div align="center">
   <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->
-  <img src="./Assets/pf-logo.png" alt="logo" width="140"  height="auto" />
+  <img src="./Assets/logo.gif" alt="logo" />
   <br/>
 
 </div>
@@ -109,7 +109,7 @@ After you're finished please remove all the comments and instructions!
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://otmaneechchafyky.github.io/the-moroccan-cuisine/about.html)
+- [Live Demo Link](https://momo-87.github.io/awesome-books/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -219,8 +219,8 @@ Example:
 👤 **Author2**
 
 - GitHub: [@githubhandle](https://github.com/momo-87)
-- Twitter: [@twitterhandle](https://twitter.com/EchchafykyO)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/otmane-echchafyky-125801248/)
+- Twitter: [@twitterhandle](https://twitter.com/Momo_yde)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/christian-momo/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
