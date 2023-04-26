@@ -1,4 +1,3 @@
-
 class Book {
   constructor(title, author) {
     this.id = Date.now().toString();
@@ -19,20 +18,18 @@ class BooksList {
     if (title === '') {
       emptyTitle.textContent = 'Please, Add the book title!';
       setTimeout(
-        function () {
+        () => {
           emptyTitle.textContent = '';
-        }, 3000);
-
+        }, 3000,
+      );
     } else if (author === '') {
       emptyAuthor.textContent = 'Please, Add the book author name!';
       setTimeout(
-        function () {
+        () => {
           emptyAuthor.textContent = '';
-        }, 3000);
-
-    }
-    
-    else {
+        }, 3000,
+      );
+    } else {
       const newBook = new Book(title, author);
       this.books.push(newBook);
     }
@@ -40,12 +37,11 @@ class BooksList {
 
   // method to Remove an existing book in the Array
   RemoveBook(id) {
-    this.books = this.books.filter(book => book.id !== id);
+    this.books = this.books.filter((book) => book.id !== id);
   }
 
   // Show books method
   ShowBooks() {
-    
     const container = document.querySelector('.books');
     while (container.firstChild) {
       container.removeChild(container.firstChild);
@@ -53,10 +49,9 @@ class BooksList {
 
     // Update books
     this.books.forEach((book) => {
-
       // Create articles Container
       const bookInfo = document.createElement('div');
-      bookInfo.className = 'book-info';
+      bookInfo.classList.add('book-info', 'flex-row');
       bookInfo.innerHTML = `<p><span class="book-title">"${book.title}"</span> by <span class="book-author"> ${book.author}</span></p>`;
 
       // Create the Remove button
@@ -66,7 +61,7 @@ class BooksList {
       button.textContent = 'Remove';
 
       // Set the book ID as a data attribute
-      button.dataset.id = book.id; 
+      button.dataset.id = book.id;
 
       bookInfo.appendChild(button);
 
