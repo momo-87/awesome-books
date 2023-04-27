@@ -23,17 +23,22 @@ a {
   text-decoration: none;
 }
 
-.navbar {
-  position: relative;
-  border: 2px solid gray;
-  align-items: center;
-  height: 30px;
-  margin-bottom: 5px;
+header {
+  margin-bottom: 2rem;
 }
 
-.logoBox {
-  position: absolute;
-  left: 5px;
+header .date {
+  align-self: self-end;
+}
+
+.navbar {
+  /* position: relative; */
+  border: 2px solid #00000075;
+  align-items: center;
+  height: 30px;
+  justify-content: space-between;
+  padding: 0 2%;
+  margin-bottom: .3rem;
 }
 
 .logoBox a {
@@ -47,8 +52,8 @@ a {
 
 
 .navbarList {
-  position:absolute;
-  right: 5px;
+  /* position:absolute;
+  right: 5px; */
   gap: 5px;
 }
 
@@ -64,6 +69,7 @@ a {
   color: gray;
   font-weight: bold;
   font-size: 0.9rem;
+  transition: .5s ease;
 }
 
 .navbarList li a:hover {
@@ -73,23 +79,29 @@ a {
 
 
 .view-books {
-  border: 2px solid black;
+  border: 2px solid #00000075;
   padding-bottom: 5px;
+}
+
+.headline {
+  align-self: center;
 }
 
 .book-info {
   width: 100%;
-  height: 20px;
+  height: 40px;
   justify-content: flex-start;
   margin-top: 5px;
   gap: 10%;
   padding: 0 2%;
+  align-items: center;
 }
 
 .book-info p {
   height: 20px;
   width: 85%;
   margin-top: 0;
+  padding: 7px 0;
 }
 
 .view-books h1 {
@@ -131,4 +143,17 @@ a {
   margin-bottom: 5px;
   font-size: small;
   color: red;
+}
+
+.contact {
+  align-items: center;
+}
+
+.contact .info li {
+  list-style-type: disc;
+}
+
+footer {
+  align-items: center;
+  border: 2px solid #00000075;
 }

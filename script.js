@@ -107,3 +107,8 @@ class BooksList {
 
 const booksList = new BooksList();
 booksList.Magic();
+
+
+const linkList = document.getElementById('link-list');
+const linkAdd = document.getElementById('link-add');
+const linkContact = document.getElementById('link-contact');
