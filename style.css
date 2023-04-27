@@ -15,6 +15,63 @@
   flex-direction: row;
 }
 
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.navbar {
+  position: relative;
+  border: 2px solid gray;
+  align-items: center;
+  height: 30px;
+  margin-bottom: 5px;
+}
+
+.logoBox {
+  position: absolute;
+  left: 5px;
+}
+
+.logoBox a {
+  color: black;
+  font-weight: bold;
+}
+
+.logoBox a:hover {
+  color: blueviolet;
+}
+
+
+.navbarList {
+  position:absolute;
+  right: 5px;
+  gap: 5px;
+}
+
+
+.navbarList li:nth-child(1),
+.navbarList li:nth-child(2)
+{
+  border-right: 2px solid gray;
+  padding-right: 5px;
+}
+
+.navbarList li a {
+  color: gray;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.navbarList li a:hover {
+  font-size: 1rem;
+  color: blueviolet;
+}
+
+
 .view-books {
   border: 2px solid black;
   padding-bottom: 5px;
