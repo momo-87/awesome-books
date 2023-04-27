@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.view-books {
+  border: 2px solid black;
+  padding-bottom: 5px;
+}
+
+.book-info {
+  width: 100%;
+  height: 20px;
+  justify-content: flex-start;
+  margin-top: 5px;
+  gap: 10%;
+  padding: 0 2%;
+}
+
+.book-info p {
+  height: 20px;
+  width: 85%;
+  margin-top: 0;
+}
+
+.view-books h1 {
+  display: flex;
+  align-self: center;
+}
+
+.book-info:nth-child(odd) {
+  background-color: #dddd;
+}
+
+.book-info:nth-child(even) {
+  background-color: white;
+}
+
+.remove-book,
+.add-book {
+  box-shadow: 0.15rem 0.15rem black;
+}
+
+.form {
+  align-items: center;
+  padding: 0;
+}
+
+.form input {
+  margin: 0;
+  width: 150%;
+  height: 2.5rem;
+  padding: 5px;
+}
+
+.add-book {
+  margin-left: 125%;
+}
+
+#empty-title,
+#empty-author {
+  margin-bottom: 5px;
+  font-size: small;
+  color: red;
+}

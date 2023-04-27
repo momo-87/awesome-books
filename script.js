@@ -1,98 +1,109 @@
-// the book object
-const book = {
-  id: '',
-  title: '',
-  author: '',
-};
-
-// Check local storage for books list object
-let booksList = JSON.parse(localStorage.getItem('books')) || [];
-
-// Add a new book function
-function addBook(title, author) {
-  const newBook = Object.create(book);
-
-  // Create a unique ID
-  newBook.id = Date.now().toString();
-
-  newBook.title = title;
-  newBook.author = author;
-  booksList.push(newBook);
+class Book {
+  constructor(title, author) {
+    this.id = Date.now().toString();
+    this.title = title;
+    this.author = author;
+  }
 }
 
-// Remove an existing book function
-function removeBook(id) {
-  booksList = booksList.filter((obj) => obj.id !== id);
-}
+const emptyTitle = document.getElementById('empty-title');
+const emptyAuthor = document.getElementById('empty-author');
 
-// Save books to local storage
-function storeBooks(books) {
-  localStorage.setItem('books', JSON.stringify(books));
-}
-
-// Show books
-function showBooks() {
-  // Remove all existing book elements from the container
-  const container = document.querySelector('.books');
-  while (container.firstChild) {
-    container.removeChild(container.firstChild);
+class BooksList {
+  constructor() {
+    this.books = [];
   }
 
-  // Update books
-  booksList.forEach((book) => {
-    // Create the container div
-    const bookInfo = document.createElement('div');
-    bookInfo.className = 'book-info';
+  AddBook(title, author) {
+    if (title === '') {
+      emptyTitle.textContent = 'Please, Add the book title!';
+      setTimeout(
+        () => {
+          emptyTitle.textContent = '';
+        }, 3000,
+      );
+    } else if (author === '') {
+      emptyAuthor.textContent = 'Please, Add the book author name!';
+      setTimeout(
+        () => {
+          emptyAuthor.textContent = '';
+        }, 3000,
+      );
+    } else {
+      const newBook = new Book(title, author);
+      this.books.push(newBook);
+    }
+  }
 
-    // Create and append title of the book
-    const title = document.createElement('p');
-    title.className = 'book-title';
-    title.innerHTML = book.title;
-    bookInfo.appendChild(title);
+  // method to Remove an existing book in the Array
+  RemoveBook(id) {
+    this.books = this.books.filter((book) => book.id !== id);
+  }
 
-    // Create and append author of the book
-    const author = document.createElement('p');
-    author.className = 'book-author';
-    author.innerHTML = book.author;
-    bookInfo.appendChild(author);
+  // Show books method
+  ShowBooks() {
+    const container = document.querySelector('.books');
+    while (container.firstChild) {
+      container.removeChild(container.firstChild);
+    }
 
-    // Create and append the button
-    const button = document.createElement('button');
-    button.className = 'remove-book';
-    button.type = 'button';
-    button.textContent = 'Remove';
-    button.dataset.id = book.id; // Set the book ID as a data attribute
-    bookInfo.appendChild(button);
+    // Update books
+    this.books.forEach((book) => {
+      // Create articles Container
+      const bookInfo = document.createElement('div');
+      bookInfo.classList.add('book-info', 'flex-row');
+      bookInfo.innerHTML = `<p><span class="book-title">"${book.title}"</span> by <span class="book-author"> ${book.author}</span></p>`;
 
-    // Create and append the hr element
-    const hr = document.createElement('hr');
-    bookInfo.appendChild(hr);
+      // Create the Remove button
+      const button = document.createElement('button');
+      button.className = 'remove-book';
+      button.type = 'button';
+      button.textContent = 'Remove';
 
-    // Append the container div to the html
-    container.appendChild(bookInfo);
-  });
+      // Set the book ID as a data attribute
+      button.dataset.id = book.id;
 
-  // Update local storage
-  storeBooks(booksList);
+      bookInfo.appendChild(button);
 
-  // Checking all the remove-book buttons
-  const removeButtons = document.querySelectorAll('.remove-book');
-  removeButtons.forEach((button) => {
-    button.addEventListener('click', (event) => {
-      const { id } = event.target.dataset;
-      removeBook(id);
-      showBooks();
+      // Add eventListener to remove button
+      button.addEventListener('click', (event) => {
+        const { id } = event.target.dataset;
+        this.RemoveBook(id);
+        this.ShowBooks();
+      });
+
+      container.appendChild(bookInfo);
     });
-  });
+
+    // Update local storage
+    this.StoreBooks();
+  }
+
+  StoreBooks() {
+    localStorage.setItem('books', JSON.stringify(this.books));
+  }
+
+  GetBooks() {
+    this.books = JSON.parse(localStorage.getItem('books')) || [];
+  }
+
+  Magic() {
+    this.GetBooks();
+    this.ShowBooks();
+
+    // Add eventListner to the add button new book
+    const addBookBtn = document.querySelector('#add-book');
+    const form = document.getElementById('form');
+    addBookBtn.addEventListener('click', (event) => {
+      event.preventDefault();
+      const title = document.querySelector('#new-title').value;
+      const author = document.querySelector('#new-author').value;
+      this.AddBook(title, author);
+      this.ShowBooks();
+      form.reset();
+    });
+  }
 }
 
-showBooks();
-
-// Adding new book
-const addBookBtn = document.querySelector('#add-book');
-addBookBtn.addEventListener('click', () => {
-  const title = document.querySelector('#new-title').value;
-  const author = document.querySelector('#new-author').value;
-  addBook(title, author);
-  showBooks();
-});
+const booksList = new BooksList();
+booksList.Magic();
