@@ -10,22 +10,21 @@
   <body>
     <!-- navbar Start -->
     <header class="flex-column">
-      <nav class="navbar flex-row">
-      <div class="logoBox"><a href="">Awesome Books</a></div>
+      <nav id="navbar" class="navbar flex-row">
+      <div class="logoBox"><a class="logo" href="">Awesome Books</a></div>
       <ul class="flex-row navbarList">
-        <li id="link-list"><a href="">List</a></li>
-        <li id="link-add"><a href="">Add new</a></li>
-        <li id="link-contact"><a href="">Contact</a></li>
+        <li><a class="linkList" href="#">List</a></li>
+        <li><a class="linkAdd" href="#">Add new</a></li>
+        <li><a class="linkContact"  href="#">Contact</a></li>
       </ul>
     </nav>
     <div class="date">
       march 19th 2023, 10:33:54
     </div>
     </header>
-    
-
     <!-- navbar End -->
-    <div class="flex-column">
+
+    <div class="flex-column" id="bookList">
       <h1 class="headline">All awesome books</h1>
       <section class="view-books flex-column">
 
@@ -35,7 +34,7 @@
         <div class="underline"></div>
       </section>
     </div>
-
+<!-- Add book Form start -->
     <form id="form" class="flex-column form">
       <article class="new-book">
         <h3>Add a new book</h3>
@@ -55,7 +54,9 @@
         <button id="add-book" class="add-book" type="submit">Add</button>
       </article>
     </form>
-    <section class="contact flex-column">
+<!-- Add book Form End -->
+<!-- Contact section start -->
+    <section id="contact" class="contact flex-column">
       <h2>Contact information</h2>
       <div class="contact-info">
         <p>Do you have any question or you want to say Hello?<br>
@@ -68,6 +69,7 @@
         </ul>
       </div>
     </section>
+    <!-- Contact section End -->
     <footer class="flex-column">
       <p>Copyright©2023 momotmane. Microstreet 73, 8797 CaMo, Africa. All rights reserved</p>
     </footer>

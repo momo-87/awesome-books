@@ -25,10 +25,16 @@ a {
 
 header {
   margin-bottom: 2rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: white;
 }
 
 header .date {
   align-self: self-end;
+  margin-right: 10px;
 }
 
 .navbar {
@@ -38,7 +44,7 @@ header .date {
   height: 30px;
   justify-content: space-between;
   padding: 0 2%;
-  margin-bottom: .3rem;
+  margin-bottom: 0.3rem;
 }
 
 .logoBox a {
@@ -46,21 +52,16 @@ header .date {
   font-weight: bold;
 }
 
-.logoBox a:hover {
+.logoBox .logo:hover {
   color: blueviolet;
 }
 
-
 .navbarList {
-  /* position:absolute;
-  right: 5px; */
   gap: 5px;
 }
 
-
 .navbarList li:nth-child(1),
-.navbarList li:nth-child(2)
-{
+.navbarList li:nth-child(2) {
   border-right: 2px solid gray;
   padding-right: 5px;
 }
@@ -69,14 +70,13 @@ header .date {
   color: gray;
   font-weight: bold;
   font-size: 0.9rem;
-  transition: .5s ease;
+  transition: 0.5s ease;
 }
 
 .navbarList li a:hover {
   font-size: 1rem;
   color: blueviolet;
 }
-
 
 .view-books {
   border: 2px solid #00000075;
@@ -85,6 +85,7 @@ header .date {
 
 .headline {
   align-self: center;
+  margin-top: 100px;
 }
 
 .book-info {
@@ -125,6 +126,7 @@ header .date {
 .form {
   align-items: center;
   padding: 0;
+  margin-top: 100px;
 }
 
 .form input {
@@ -147,6 +149,8 @@ header .date {
 
 .contact {
   align-items: center;
+  height: 400px;
+  margin-top: 100px;
 }
 
 .contact .info li {
@@ -154,6 +158,12 @@ header .date {
 }
 
 footer {
+  position: fixed;
+  bottom: 0;
+  left: 0.4%;
+  right: 0.2%;
   align-items: center;
   border: 2px solid #00000075;
+  width: 99.1%;
+  background-color: white;
 }
